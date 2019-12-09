@@ -6,7 +6,6 @@ on:
     branches:
     - master
   issue_comment:
-    types: [created, edited]
 
 jobs:
   rspec:
