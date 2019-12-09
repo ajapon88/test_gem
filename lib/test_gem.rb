@@ -1,6 +1,8 @@
-require "test_gem/version"
+require 'test_gem/version'
 
 module TestGem
   class Error < StandardError; end
-  # Your code goes here...
+  def self.greet
+    'Hello'
+  end
 end
