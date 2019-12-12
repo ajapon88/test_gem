@@ -8,10 +8,10 @@ on:
 
 jobs:
   rspec:
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-18.04
     strategy:
       matrix:
-        ruby: [ '2.x', '3.x' ]
+        ruby: [ '2.3.x', '2.4.x', '2.5.x', '2.6.x' ]
     name: Test ruby ${{ matrix.ruby }}
     steps:
     - uses: actions/checkout@v1
