@@ -2,7 +2,7 @@ name: Build
 
 on:
   # issue_comment: # PullRequestのコメントに反応しない
-  pull_request_review:
+  pull_request_review: null
 
 jobs:
   build:
@@ -36,5 +36,4 @@ jobs:
     runs-on: ubuntu-latest
     if: github.event.review.body != 'build'
     steps:
-    - run: |
-      echo "not build"
+    - run: echo "not build"
