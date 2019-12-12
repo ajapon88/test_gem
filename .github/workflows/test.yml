@@ -1,9 +1,13 @@
 name: Test
 
-on: [push]
+on:
+  pull_request:
+  push:
+    branches:
+    - master
 
 jobs:
-  build:
+  rspec:
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v1
