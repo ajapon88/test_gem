@@ -1,13 +1,10 @@
-name: Test
+name: Build
 
 on:
   pull_request:
-  push:
-    branches:
-    - master
 
 jobs:
-  rspec:
+  build:
 
     runs-on: ubuntu-latest
 
@@ -17,8 +14,13 @@ jobs:
       uses: actions/setup-ruby@v1
       with:
         ruby-version: 2.6.x
-    - name: Build and test with Rake
+    - name: Build package with Rake
       run: |
         gem install bundler
         bundle install --jobs 4 --retry 3
-        bundle exec rake spec
+        bundle exec rake build
+    - name: Upload package
+      uses: actions/upload-artifact@v1
+      with:
+        name: package
+        path: pkg
