@@ -1,13 +1,13 @@
 name: Build
 
 on:
-  pull_request:
+  # issue_comment: # PullRequestのコメントに反応しない
+  pull_request_review:
 
 jobs:
   build:
-
     runs-on: ubuntu-latest
-
+    if: github.event.body == 'build'
     steps:
     - uses: actions/checkout@v1
     - name: Set up Ruby 2.6
