@@ -32,3 +32,9 @@ jobs:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       with:
         args: comment "${{ github.event.repository.html_url }}/commit/${{ github.event.review.commit_id }}/checks"
+  not-build:
+    runs-on: ubuntu-latest
+    if: github.event.review.body != 'build'
+    steps:
+    - run: |
+      echo "not build"
