@@ -26,3 +26,9 @@ jobs:
       with:
         name: package
         path: pkg
+    - name: Notify
+      uses: actions/github@v1.0.0
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      with:
+        args: comment "${{ github.event.repository.html_url }}/commit/${{ github.event.review.commit_id }}/checks"
