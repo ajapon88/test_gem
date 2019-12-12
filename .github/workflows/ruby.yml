@@ -1,12 +1,12 @@
 name: Ruby
 
 on:
+  issue_comment:
   pull_request:
+  pull_request_review_comment:
   push:
     branches:
     - master
-  issue_comment:
-  pull_request_review_comment:
 
 jobs:
   rspec:
