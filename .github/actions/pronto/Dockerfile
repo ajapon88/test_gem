@@ -9,7 +9,7 @@ RUN apk add --update --no-cache --virtual .ruby-builddeps build-base ruby-dev cm
     gem install bundler -v 2.0.2 && \
     bundle install --jobs=4 --retry=3 && \
     apk del .ruby-builddeps && \
-    apk add --update --no-cache libssh2 git # using rugged & gemspec
+    apk add --update --no-cache libssh2 # using rugged
 
 ENV LANG=en_US.UTF-8 \
     LANGUAGE=en_US.UTF-8
