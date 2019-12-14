@@ -1,3 +1,3 @@
 #!/bin/sh -l
 
-pronto run -f github_status github_pr -c "$1"
+bundle exec pronto run -f github_status github_pr -c "$1"
