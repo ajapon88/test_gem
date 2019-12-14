@@ -14,6 +14,6 @@ RUN apk add --update --no-cache --virtual .ruby-builddeps build-base ruby-dev cm
 ENV LANG=en_US.UTF-8 \
     LANGUAGE=en_US.UTF-8
 
-ENV PATH $GEM_HOME/bin:$BUNDLE_PATH/gems/bin:$PATH
+COPY entrypoint.sh /entrypoint.sh
 
-ENTRYPOINT ["/usr/local/bundle/bin/pronto"]
+ENTRYPOINT ["/entrypoint.sh"]
