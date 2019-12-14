@@ -15,6 +15,10 @@ jobs:
         key: ${{ runner.os }}-gem-${{ hashFiles('**/Gemfile') }}-${{ hashFiles('**/*.gemspec') }}
         restore-keys: |
           ${{ runner.os }}-gem-
+    - name: Set up Ruby
+      uses: actions/setup-ruby@v1
+      with:
+        ruby-version: 2.6.x
     - name: Install gems
       run: |
         gem install bundler
