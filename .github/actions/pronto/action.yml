@@ -1,13 +1,12 @@
 name: 'Ruby pronto Action'
 description: 'Pronto for Ruby'
 author: 'ajapon88'
-runs:
-  using: 'docker'
-  image: 'Dockerfile'
 inputs:
   commit:
     description: 'Commit for the diff.'
     required: true
+runs:
+  using: 'docker'
+  image: 'Dockerfile'
   args:
     - ${{ inputs.commit }}
-  
