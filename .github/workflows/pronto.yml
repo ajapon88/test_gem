@@ -14,6 +14,6 @@ jobs:
         PRONTO_GITHUB_ACCESS_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       with:
         formatters: |
-          github_pr_status
+          github_status
           github_pr
         commit: origin/${{ github.event.pull_request.base.ref }}
