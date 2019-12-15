@@ -2,6 +2,12 @@ name: 'Pronto Ruby Action'
 description: 'Pronto for Ruby'
 author: 'ajapon88'
 inputs:
+  formatters:
+    description: 'Pick output formatters.'
+    required: true
+    default: |
+      github_pr_review
+      github_pr
   commit:
     description: 'Commit for the diff.'
     required: true
@@ -9,9 +15,5 @@ runs:
   using: 'docker'
   image: 'Dockerfile'
   args:
-    - run
-    - -f
-    - github_pr_review
-    - github_pr
-    - -c
+    - ${{ inputs.formatters }}
     - ${{ inputs.commit }}
