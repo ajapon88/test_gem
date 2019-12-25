@@ -1,13 +1,19 @@
 name: Test
 
 on:
-  pull_request:
+  pull_request: null
   push:
     branches:
     - master
 
 jobs:
+  prepare:
+    runs-on: ubuntu-latest
+    if: "! contains(github.event.head_commit.message, '[ci skip]')"
+    steps:
+      - run: echo "${{ github.event.head_commit.message }}"
   rspec:
+    needs: prepare
     name: Test on ruby ${{ matrix.ruby }} and ${{ matrix.os }}
     runs-on: ${{ matrix.os }}
     strategy:
