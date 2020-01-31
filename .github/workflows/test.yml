@@ -15,7 +15,7 @@ jobs:
     needs: prepare
     strategy:
       matrix:
-        ruby: [ '2.6.x' ]
+        ruby: [ '2.7.x' ]
         os: [ubuntu-latest, windows-latest, macos-latest]
       fail-fast: false
     steps:
@@ -35,7 +35,7 @@ jobs:
         ruby-version: ${{ matrix.ruby }}
     - name: Build and test with Rake
       run: |
-        gem install bundler
+        # gem install bundler -v 2.1.4 # ruby 2.7.0以上であればデフォルトでインストール済み
         bundle config path vendor/bundle
         bundle install --jobs 4 --retry 3
         bundle exec rake
